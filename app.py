@@ -479,6 +479,41 @@ if predict_btn and selected_symptoms:
                             </div>
                             """, unsafe_allow_html=True)
                             
+                            # Add disease-specific prevention tips and lifestyle recommendations
+                            disease_name = analysis_results.get('top_disease', '')
+                            if disease_name and disease_name in diseases_data:
+                                disease_info = diseases_data[disease_name]
+                                
+                                # Prevention Tips
+                                st.markdown("#### Prevention Tips")
+                                prevention_tips = disease_info.get('prevention_tips', [])
+                                if prevention_tips:
+                                    st.markdown('<div class="prevention-tips-box">', unsafe_allow_html=True)
+                                    for tip in prevention_tips:
+                                        st.markdown(f"- {tip}")
+                                    st.markdown('</div>', unsafe_allow_html=True)
+                                else:
+                                    # Fall back to basic prevention if detailed tips aren't available
+                                    prevention_list = disease_info.get('prevention', [])
+                                    if prevention_list:
+                                        st.markdown('<div class="prevention-tips-box">', unsafe_allow_html=True)
+                                        for prevention in prevention_list:
+                                            st.markdown(f"- {prevention}")
+                                        st.markdown('</div>', unsafe_allow_html=True)
+                                    else:
+                                        st.write("No specific prevention tips available for this condition.")
+                                
+                                # Lifestyle Recommendations
+                                st.markdown("#### Lifestyle Recommendations")
+                                lifestyle_recommendations = disease_info.get('lifestyle_recommendations', [])
+                                if lifestyle_recommendations:
+                                    st.markdown('<div class="lifestyle-box">', unsafe_allow_html=True)
+                                    for recommendation in lifestyle_recommendations:
+                                        st.markdown(f"- {recommendation}")
+                                    st.markdown('</div>', unsafe_allow_html=True)
+                                else:
+                                    st.write("No specific lifestyle recommendations available for this condition.")
+                            
                             # Disclaimer for advanced analysis
                             st.markdown("""
                             <div class="disclaimer-box">
@@ -656,6 +691,41 @@ if not predict_btn or not selected_symptoms:
                         <p>{recommendation}</p>
                         </div>
                         """, unsafe_allow_html=True)
+                        
+                        # Add disease-specific prevention tips and lifestyle recommendations
+                        disease_name = analysis_results.get('top_disease', '')
+                        if disease_name and disease_name in diseases_data:
+                            disease_info = diseases_data[disease_name]
+                            
+                            # Prevention Tips
+                            st.markdown("#### Prevention Tips")
+                            prevention_tips = disease_info.get('prevention_tips', [])
+                            if prevention_tips:
+                                st.markdown('<div class="prevention-tips-box">', unsafe_allow_html=True)
+                                for tip in prevention_tips:
+                                    st.markdown(f"- {tip}")
+                                st.markdown('</div>', unsafe_allow_html=True)
+                            else:
+                                # Fall back to basic prevention if detailed tips aren't available
+                                prevention_list = disease_info.get('prevention', [])
+                                if prevention_list:
+                                    st.markdown('<div class="prevention-tips-box">', unsafe_allow_html=True)
+                                    for prevention in prevention_list:
+                                        st.markdown(f"- {prevention}")
+                                    st.markdown('</div>', unsafe_allow_html=True)
+                                else:
+                                    st.write("No specific prevention tips available for this condition.")
+                            
+                            # Lifestyle Recommendations
+                            st.markdown("#### Lifestyle Recommendations")
+                            lifestyle_recommendations = disease_info.get('lifestyle_recommendations', [])
+                            if lifestyle_recommendations:
+                                st.markdown('<div class="lifestyle-box">', unsafe_allow_html=True)
+                                for recommendation in lifestyle_recommendations:
+                                    st.markdown(f"- {recommendation}")
+                                st.markdown('</div>', unsafe_allow_html=True)
+                            else:
+                                st.write("No specific lifestyle recommendations available for this condition.")
                         
                         # Disclaimer for advanced analysis
                         st.markdown("""
