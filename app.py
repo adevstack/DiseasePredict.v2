@@ -172,6 +172,41 @@ else:
     predict_btn = False
     st.info("Please select at least one symptom to continue")
 
+def generate_basic_report(predictions, symptoms):
+    """Generate report text for basic prediction"""
+    report = []
+    report.append("AI Disease Prediction Report\n")
+    report.append("=" * 30 + "\n\n")
+    report.append(f"Symptoms Analyzed: {', '.join(symptoms)}\n\n")
+    report.append("Predictions:\n")
+    for i, (disease, confidence) in enumerate(predictions[:3], 1):
+        report.append(f"{i}. {disease} - Confidence: {confidence*100:.1f}%\n")
+    return "".join(report)
+
+def generate_advanced_report(analysis_results, detailed_symptoms):
+    """Generate report text for advanced analysis"""
+    report = []
+    report.append("AI Advanced Disease Analysis Report\n")
+    report.append("=" * 35 + "\n\n")
+    
+    if detailed_symptoms:
+        report.append(f"Detailed Symptoms Description:\n{detailed_symptoms}\n\n")
+    
+    report.append(f"Primary Prediction: {analysis_results.get('top_disease', 'Unknown')}\n")
+    report.append(f"Confidence: {analysis_results.get('advanced_confidence', 0)*100:.1f}%\n")
+    report.append(f"Severity: {analysis_results.get('severity', 'Unknown')}\n")
+    report.append(f"Recommended Action: {analysis_results.get('urgency', 'Unknown')}\n\n")
+    
+    nl_indicators = analysis_results.get('natural_language_indicators', {})
+    if nl_indicators:
+        report.append("Analysis Indicators:\n")
+        for key in ['severity_terms', 'duration_terms', 'intensity_terms']:
+            terms = nl_indicators.get(key, [])
+            if terms:
+                report.append(f"- {key.replace('_', ' ').title()}: {', '.join(terms)}\n")
+    
+    return "".join(report)
+
 # Disease prediction section
 if predict_btn and selected_symptoms:
     with st.spinner("Analyzing symptoms..."):
@@ -182,6 +217,15 @@ if predict_btn and selected_symptoms:
         predictions = predict_disease(model, symptoms_text)
         
         st.subheader("Disease Prediction Results")
+        
+        # Generate and offer basic prediction report download
+        report_text = generate_basic_report(predictions, selected_symptoms)
+        st.download_button(
+            label="📥 Download Basic Prediction Report",
+            data=report_text,
+            file_name="basic_prediction_report.txt",
+            mime="text/plain"
+        )
         
         # Display top 3 disease predictions with confidence
         for i, (disease, confidence) in enumerate(predictions[:3]):
@@ -522,6 +566,15 @@ if predict_btn and selected_symptoms:
                                     st.write("No specific lifestyle recommendations available for this condition.")
                             
                             # Disclaimer for advanced analysis
+                            # Add download button for advanced report
+                            advanced_report_text = generate_advanced_report(analysis_results, detailed_symptoms)
+                            st.download_button(
+                                label="📥 Download Advanced Analysis Report",
+                                data=advanced_report_text,
+                                file_name="advanced_analysis_report.txt",
+                                mime="text/plain"
+                            )
+                            
                             st.markdown("""
                             <div class="disclaimer-box">
                             <p><strong>MEDICAL DISCLAIMER:</strong> This advanced analysis is not a substitute for professional medical diagnosis. 
