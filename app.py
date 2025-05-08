@@ -238,7 +238,8 @@ if predict_btn and selected_symptoms:
                 confidence_class = "confidence-low"
 
             # Create expander for each disease
-            with st.expander(f"**{i+1}. {disease}** - Confidence: <span class='{confidence_class}'>{confidence_pct:.1f}%</span>", expanded=(i==0), unsafe_allow_html=True):
+            with st.expander(f"Disease Prediction #{i+1}", expanded=(i==0)):
+                st.markdown(f"**{disease}** - Confidence: <span class='{confidence_class}'>{confidence_pct:.1f}%</span>", unsafe_allow_html=True)
                 if disease in diseases_data:
                     disease_info = diseases_data[disease]
 
@@ -749,7 +750,7 @@ if not predict_btn or not selected_symptoms:
                         elif advanced_conf >= 50:
                             recommendation = f"Based on our advanced analysis, we recommend consulting with a healthcare professional about potential {analysis_results.get('top_disease', 'condition')}. Please share these results with your doctor at your next appointment."
                         else:
-                            recommendation = "Based on our advanced analysis, we recommend monitoring your symptoms and consulting with a healthcare professional if they persist or worsen."
+                            recommendation = "Based on our advanced analysis, we recommend monitoring your symptoms and consulting with a healthcare professional if theypersist or worsen."
 
                         st.markdown(f"""
                         <div class="recommendation-box">
