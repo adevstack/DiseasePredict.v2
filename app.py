@@ -64,6 +64,20 @@ st.markdown("""
         color: #ef553b;
         font-weight: bold;
     }
+    .prevention-tips-box {
+        background-color: rgba(0, 204, 150, 0.1);
+        border-left: 5px solid #00cc96;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+    }
+    .lifestyle-box {
+        background-color: rgba(100, 149, 237, 0.1);
+        border-left: 5px solid #6495ED;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -168,6 +182,28 @@ if predict_btn and selected_symptoms:
                             st.markdown(f"- {prevention}")
                     else:
                         st.write("No prevention information available")
+                    
+                    # Detailed Prevention Tips
+                    st.markdown("#### Detailed Prevention Tips")
+                    prevention_tips = disease_info.get('prevention_tips', [])
+                    if prevention_tips:
+                        st.markdown('<div class="prevention-tips-box">', unsafe_allow_html=True)
+                        for tip in prevention_tips:
+                            st.markdown(f"- {tip}")
+                        st.markdown('</div>', unsafe_allow_html=True)
+                    else:
+                        st.write("No detailed prevention tips available")
+                    
+                    # Lifestyle Recommendations
+                    st.markdown("#### Lifestyle Recommendations")
+                    lifestyle_recommendations = disease_info.get('lifestyle_recommendations', [])
+                    if lifestyle_recommendations:
+                        st.markdown('<div class="lifestyle-box">', unsafe_allow_html=True)
+                        for recommendation in lifestyle_recommendations:
+                            st.markdown(f"- {recommendation}")
+                        st.markdown('</div>', unsafe_allow_html=True)
+                    else:
+                        st.write("No lifestyle recommendations available")
                     
                     # Treatment recommendations
                     st.markdown("#### Treatment Recommendations")

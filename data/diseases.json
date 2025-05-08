@@ -23,6 +23,24 @@
       "Use disposable tissues",
       "Take care of your general health"
     ],
+    "prevention_tips": [
+      "Wash hands frequently with soap and water for at least 20 seconds",
+      "Avoid close contact with people who are sick",
+      "Clean and disinfect frequently touched surfaces",
+      "Avoid touching your eyes, nose, and mouth with unwashed hands",
+      "Stay at home when you are sick to prevent spreading illness to others",
+      "Practice good respiratory hygiene (cover your cough or sneeze with a tissue)",
+      "Strengthen your immune system through regular physical activity"
+    ],
+    "lifestyle_recommendations": [
+      "Stay hydrated by drinking plenty of fluids like water, herbal teas, and clear broths",
+      "Get adequate sleep (7-9 hours) to help your immune system fight infections",
+      "Consume foods rich in vitamin C like citrus fruits, strawberries, and bell peppers",
+      "Use a humidifier to add moisture to the air and help ease congestion",
+      "Gargle with salt water to soothe a sore throat and reduce inflammation",
+      "Consider taking zinc lozenges within 24 hours of symptoms to reduce duration",
+      "Eat a balanced diet with plenty of fruits and vegetables to support immune function"
+    ],
     "treatments": [
       "Rest and proper hydration",
       "Over-the-counter cold medications",
@@ -61,6 +79,25 @@
       "Cover your mouth and nose when coughing or sneezing",
       "Avoid close contact with sick people",
       "Stay home when you are sick"
+    ],
+    "prevention_tips": [
+      "Get vaccinated annually with the seasonal flu vaccine (ideally before flu season begins)",
+      "Practice good hand hygiene by washing hands frequently with soap and water for at least 20 seconds",
+      "Use alcohol-based hand sanitizers when soap and water are not available",
+      "Avoid touching your eyes, nose, and mouth with unwashed hands",
+      "Maintain at least 1-meter distance from people who are coughing or showing symptoms",
+      "Clean and disinfect frequently touched surfaces at home, work, or school",
+      "If you're at high risk (elderly, pregnant, or immunocompromised), consider wearing a mask in crowded places during flu season"
+    ],
+    "lifestyle_recommendations": [
+      "Stay hydrated by drinking plenty of clear fluids like water, herbal teas, and broths",
+      "Get adequate rest and sleep to support your immune system (7-9 hours per night)",
+      "Maintain a balanced diet rich in fruits and vegetables to ensure adequate vitamin and mineral intake",
+      "Consider foods high in vitamin C (citrus fruits, bell peppers) and vitamin E (nuts, seeds) to support immune function",
+      "Engage in moderate regular exercise to boost immunity (30 minutes most days of the week)",
+      "Manage stress through meditation, yoga, or other relaxation techniques",
+      "If you smoke, consider quitting as smoking increases risk of serious flu complications",
+      "Limit alcohol consumption as it may weaken your immune response"
     ],
     "treatments": [
       "Rest and proper hydration",
@@ -222,6 +259,28 @@
       "Avoid crowds and poorly ventilated spaces",
       "Cover coughs and sneezes",
       "Clean and disinfect frequently touched surfaces daily"
+    ],
+    "prevention_tips": [
+      "Stay up-to-date with COVID-19 vaccines and boosters as recommended",
+      "Wear high-quality masks (N95, KN95, or surgical) in crowded indoor settings",
+      "Maintain 2 meters (6 feet) distance from others, especially those who are sick",
+      "Wash hands with soap and water for at least 20 seconds, especially after being in public",
+      "Use hand sanitizer with at least 60% alcohol when soap is not available",
+      "Avoid touching your eyes, nose, and mouth with unwashed hands",
+      "Improve ventilation in indoor spaces (open windows, use air purifiers)",
+      "Get tested if you have symptoms or have been exposed to someone with COVID-19",
+      "Follow local public health guidelines and stay informed about community transmission levels"
+    ],
+    "lifestyle_recommendations": [
+      "Maintain a strong immune system through regular exercise (at least 150 minutes of moderate activity per week)",
+      "Ensure adequate vitamin D levels through safe sun exposure or supplements if recommended by healthcare provider",
+      "Consume a balanced diet rich in fruits, vegetables, and foods high in vitamin C and zinc",
+      "Stay well-hydrated with water throughout the day",
+      "Get 7-9 hours of quality sleep each night to support immune function",
+      "Manage stress through mindfulness, meditation, or other relaxation techniques",
+      "Limit alcohol consumption and avoid smoking, as both can impair immune function",
+      "Monitor your blood oxygen levels if you have symptoms (pulse oximeter can be helpful)",
+      "Have a COVID-19 plan ready: know how to isolate, who to contact, and have essential supplies on hand"
     ],
     "treatments": [
       "Rest and hydration",
