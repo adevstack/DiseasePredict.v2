@@ -349,7 +349,7 @@ if predict_btn and selected_symptoms:
         with upload_col1:
             xray_file = st.file_uploader("X-ray Image", type=["jpg", "jpeg", "png"])
             if xray_file is not None:
-                st.image(xray_file, caption="Uploaded X-ray", use_column_width=True)
+                st.image(xray_file, caption="Uploaded X-ray", use_container_width=True)
         
         with upload_col2:
             ct_scan_file = st.file_uploader("CT Scan", type=["jpg", "jpeg", "png"])
@@ -560,12 +560,12 @@ if not predict_btn or not selected_symptoms:
     with direct_upload_col1:
         direct_xray_file = st.file_uploader("X-ray Image", type=["jpg", "jpeg", "png"], key="direct_xray")
         if direct_xray_file is not None:
-            st.image(direct_xray_file, caption="Uploaded X-ray", use_column_width=True)
+            st.image(direct_xray_file, caption="Uploaded X-ray", use_container_width=True)
     
     with direct_upload_col2:
         direct_ct_scan_file = st.file_uploader("CT Scan", type=["jpg", "jpeg", "png"], key="direct_ct")
         if direct_ct_scan_file is not None:
-            st.image(direct_ct_scan_file, caption="Uploaded CT Scan", use_column_width=True)
+            st.image(direct_ct_scan_file, caption="Uploaded CT Scan", use_container_width=True)
     
     with direct_upload_col3:
         direct_lab_report = st.file_uploader("Lab Report", type=["pdf", "jpg", "jpeg", "png"], key="direct_lab")
@@ -573,7 +573,7 @@ if not predict_btn or not selected_symptoms:
             if direct_lab_report.type == "application/pdf":
                 st.write(f"PDF Uploaded: {direct_lab_report.name}")
             else:
-                st.image(direct_lab_report, caption="Uploaded Lab Report", use_column_width=True)
+                st.image(direct_lab_report, caption="Uploaded Lab Report", use_container_width=True)
     
     # Direct advanced analysis button
     if st.button("Run Direct Advanced Analysis", type="primary", key="direct_advanced_btn"):
