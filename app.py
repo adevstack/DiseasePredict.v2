@@ -160,7 +160,7 @@ with col2:
     # Custom symptom input
     custom_symptom = st.text_input("Or enter a custom symptom:", 
                                     placeholder="e.g., skin rash, fatigue, etc.")
-    
+
     if st.button("Add Custom Symptom") and custom_symptom and custom_symptom not in selected_symptoms:
         selected_symptoms.append(custom_symptom)
 
@@ -188,15 +188,15 @@ def generate_advanced_report(analysis_results, detailed_symptoms):
     report = []
     report.append("AI Advanced Disease Analysis Report\n")
     report.append("=" * 35 + "\n\n")
-    
+
     if detailed_symptoms:
         report.append(f"Detailed Symptoms Description:\n{detailed_symptoms}\n\n")
-    
+
     report.append(f"Primary Prediction: {analysis_results.get('top_disease', 'Unknown')}\n")
     report.append(f"Confidence: {analysis_results.get('advanced_confidence', 0)*100:.1f}%\n")
     report.append(f"Severity: {analysis_results.get('severity', 'Unknown')}\n")
     report.append(f"Recommended Action: {analysis_results.get('urgency', 'Unknown')}\n\n")
-    
+
     nl_indicators = analysis_results.get('natural_language_indicators', {})
     if nl_indicators:
         report.append("Analysis Indicators:\n")
@@ -204,7 +204,7 @@ def generate_advanced_report(analysis_results, detailed_symptoms):
             terms = nl_indicators.get(key, [])
             if terms:
                 report.append(f"- {key.replace('_', ' ').title()}: {', '.join(terms)}\n")
-    
+
     return "".join(report)
 
 # Disease prediction section
@@ -212,12 +212,12 @@ if predict_btn and selected_symptoms:
     with st.spinner("Analyzing symptoms..."):
         # Join symptoms for prediction input
         symptoms_text = ", ".join(selected_symptoms)
-        
+
         # Make prediction
         predictions = predict_disease(model, symptoms_text)
-        
+
         st.subheader("Disease Prediction Results")
-        
+
         # Generate and offer basic prediction report download
         report_text = generate_basic_report(predictions, selected_symptoms)
         st.download_button(
@@ -226,7 +226,7 @@ if predict_btn and selected_symptoms:
             file_name="basic_prediction_report.txt",
             mime="text/plain"
         )
-        
+
         # Display top 3 disease predictions with confidence
         for i, (disease, confidence) in enumerate(predictions[:3]):
             confidence_pct = confidence * 100
@@ -236,16 +236,16 @@ if predict_btn and selected_symptoms:
                 confidence_class = "confidence-medium"
             else:
                 confidence_class = "confidence-low"
-            
+
             # Create expander for each disease
-            with st.expander(f"**{i+1}. {disease}** - Confidence: <span class='{confidence_class}'>{confidence_pct:.1f}%</span>", expanded=(i==0)):
+            with st.expander(f"**{i+1}. {disease}** - Confidence: <span class='{confidence_class}'>{confidence_pct:.1f}%</span>", expanded=(i==0), unsafe_allow_html=True):
                 if disease in diseases_data:
                     disease_info = diseases_data[disease]
-                    
+
                     # Display disease information
                     st.markdown("#### Disease Information")
                     st.markdown(f"**Description**: {disease_info.get('description', 'No description available')}")
-                    
+
                     # Symptoms
                     st.markdown("#### Common Symptoms")
                     symptoms_list = disease_info.get('symptoms', [])
@@ -254,7 +254,7 @@ if predict_btn and selected_symptoms:
                             st.markdown(f"- {symptom}")
                     else:
                         st.write("No symptom information available")
-                    
+
                     # Causes
                     st.markdown("#### Causes")
                     causes_list = disease_info.get('causes', [])
@@ -263,7 +263,7 @@ if predict_btn and selected_symptoms:
                             st.markdown(f"- {cause}")
                     else:
                         st.write("No cause information available")
-                    
+
                     # Prevention
                     st.markdown("#### Prevention")
                     prevention_list = disease_info.get('prevention', [])
@@ -272,7 +272,7 @@ if predict_btn and selected_symptoms:
                             st.markdown(f"- {prevention}")
                     else:
                         st.write("No prevention information available")
-                    
+
                     # Detailed Prevention Tips
                     st.markdown("#### Detailed Prevention Tips")
                     prevention_tips = disease_info.get('prevention_tips', [])
@@ -283,7 +283,7 @@ if predict_btn and selected_symptoms:
                         st.markdown('</div>', unsafe_allow_html=True)
                     else:
                         st.write("No detailed prevention tips available")
-                    
+
                     # Lifestyle Recommendations
                     st.markdown("#### Lifestyle Recommendations")
                     lifestyle_recommendations = disease_info.get('lifestyle_recommendations', [])
@@ -294,7 +294,7 @@ if predict_btn and selected_symptoms:
                         st.markdown('</div>', unsafe_allow_html=True)
                     else:
                         st.write("No lifestyle recommendations available")
-                    
+
                     # Treatment recommendations
                     st.markdown("#### Treatment Recommendations")
                     treatment_list = disease_info.get('treatments', [])
@@ -303,11 +303,11 @@ if predict_btn and selected_symptoms:
                             st.markdown(f"- {treatment}")
                     else:
                         st.write("No treatment recommendations available")
-                    
+
                     # Medications section
                     st.markdown("#### Recommended Medications")
                     medications_list = disease_info.get('medications', [])
-                    
+
                     if medications_list:
                         # Fetch medication purchase links for each medication
                         for medication in medications_list:
@@ -318,10 +318,10 @@ if predict_btn and selected_symptoms:
                                 <h5>{medication}</h5>
                                 </div>
                                 """, unsafe_allow_html=True)
-                                
+
                                 # Create columns for different pharmacy options
                                 pharmacy_col1, pharmacy_col2 = st.columns(2)
-                                
+
                                 with pharmacy_col1:
                                     # 1mg
                                     link_1mg = search_medication_1mg(medication)
@@ -329,14 +329,14 @@ if predict_btn and selected_symptoms:
                                         st.markdown(f"[Buy on 1mg]({link_1mg})")
                                     else:
                                         st.write("Not available on 1mg")
-                                    
+
                                     # PharmEasy
                                     link_pharmeasy = search_medication_pharmeasy(medication)
                                     if link_pharmeasy:
                                         st.markdown(f"[Buy on PharmEasy]({link_pharmeasy})")
                                     else:
                                         st.write("Not available on PharmEasy")
-                                
+
                                 with pharmacy_col2:
                                     # Netmeds
                                     link_netmeds = search_medication_netmeds(medication)
@@ -344,7 +344,7 @@ if predict_btn and selected_symptoms:
                                         st.markdown(f"[Buy on Netmeds]({link_netmeds})")
                                     else:
                                         st.write("Not available on Netmeds")
-                                    
+
                                     # CultFit
                                     link_cultfit = search_medication_cultfit(medication)
                                     if link_cultfit:
@@ -355,7 +355,7 @@ if predict_btn and selected_symptoms:
                         st.write("No medication information available")
                 else:
                     st.write("Detailed information for this disease is not available.")
-        
+
         # Disclaimer reminder
         st.markdown("""
         <div class="disclaimer-box">
@@ -363,10 +363,10 @@ if predict_btn and selected_symptoms:
         Please consult with a healthcare professional for proper diagnosis and treatment.</p>
         </div>
         """, unsafe_allow_html=True)
-        
+
         # Store predictions in session state to access them in advanced analysis
         st.session_state.predictions = predictions
-        
+
         # Advanced Analysis Section
         st.markdown("---")
         st.subheader("🔬 Advanced Analysis (Optional)")
@@ -375,31 +375,31 @@ if predict_btn and selected_symptoms:
         <p>For a more detailed analysis, you can provide additional information below. This is completely optional but may help with a more accurate assessment.</p>
         </div>
         """, unsafe_allow_html=True)
-        
+
         # Detailed symptom description
         detailed_symptoms = st.text_area(
             "Describe your symptoms in detail:",
             placeholder="Please describe how you're feeling in your own words. For example: 'I've been having a persistent dry cough for 3 days, along with fatigue and mild fever that gets worse in the evening...'",
             height=150
         )
-        
+
         # Medical reports upload section
         st.markdown("#### Upload Medical Reports (Optional)")
         st.markdown("You can upload medical reports like X-rays, CT scans, or lab reports for a more comprehensive analysis.")
-        
+
         # Create three columns for different types of uploads
         upload_col1, upload_col2, upload_col3 = st.columns(3)
-        
+
         with upload_col1:
             xray_file = st.file_uploader("X-ray Image", type=["jpg", "jpeg", "png"])
             if xray_file is not None:
                 st.image(xray_file, caption="Uploaded X-ray", use_container_width=True)
-        
+
         with upload_col2:
             ct_scan_file = st.file_uploader("CT Scan", type=["jpg", "jpeg", "png"])
             if ct_scan_file is not None:
                 st.image(ct_scan_file, caption="Uploaded CT Scan", use_column_width=True)
-        
+
         with upload_col3:
             lab_report = st.file_uploader("Lab Report", type=["pdf", "jpg", "jpeg", "png"])
             if lab_report is not None:
@@ -407,7 +407,7 @@ if predict_btn and selected_symptoms:
                     st.write(f"PDF Uploaded: {lab_report.name}")
                 else:
                     st.image(lab_report, caption="Uploaded Lab Report", use_column_width=True)
-        
+
         # Run advanced analysis button
         if st.button("Run Advanced Analysis", type="secondary"):
             if not detailed_symptoms and not xray_file and not ct_scan_file and not lab_report:
@@ -415,7 +415,7 @@ if predict_btn and selected_symptoms:
             else:
                 # Check if any predictions are available
                 current_predictions = st.session_state.get('predictions', [])
-                
+
                 if not current_predictions:
                     st.warning("Please run the basic disease prediction first by selecting symptoms and clicking 'Predict Disease' before running advanced analysis.")
                 else:
@@ -429,19 +429,19 @@ if predict_btn and selected_symptoms:
                             ct_scan_file=ct_scan_file,
                             lab_report=lab_report
                         )
-                    
+
                     if analysis_results and analysis_results.get("success", False):
                         st.success("Advanced analysis complete!")
-                        
+
                         # Display results in an expander
                         with st.expander("View Advanced Analysis Results", expanded=True):
                             # Basic info
                             st.markdown(f"#### Analysis of {analysis_results.get('top_disease', 'Unknown Condition')}")
-                            
+
                             # Confidence comparison
                             initial_conf = analysis_results.get('initial_confidence', 0) * 100
                             advanced_conf = analysis_results.get('advanced_confidence', 0) * 100
-                            
+
                             # Display confidence scores
                             confidence_col1, confidence_col2 = st.columns(2)
                             with confidence_col1:
@@ -455,41 +455,41 @@ if predict_btn and selected_symptoms:
                                     value=f"{advanced_conf:.1f}%",
                                     delta=f"{advanced_conf - initial_conf:.1f}%"
                                 )
-                            
+
                             # Severity and urgency indicators
                             severity = analysis_results.get('severity', 'Unknown')
                             urgency = analysis_results.get('urgency', 'Unknown')
-                            
+
                             severity_col1, severity_col2 = st.columns(2)
                             with severity_col1:
                                 st.markdown(f"**Severity Assessment:** {severity}")
                             with severity_col2:
                                 st.markdown(f"**Recommended Action:** {urgency}")
-                            
+
                             # Natural language analysis
                             if detailed_symptoms:
                                 st.markdown("#### Natural Language Analysis")
                                 nl_indicators = analysis_results.get('natural_language_indicators', {})
-                                
+
                                 if nl_indicators:
                                     # Format the detected language patterns
                                     severity_terms = nl_indicators.get('severity_terms', [])
                                     duration_terms = nl_indicators.get('duration_terms', [])
                                     intensity_terms = nl_indicators.get('intensity_terms', [])
-                                    
+
                                     st.markdown("""
                                     <div class="advanced-result-box">
                                     <p><strong>Symptom Analysis:</strong> Our language analysis has detected key indicators in your description.</p>
                                     </div>
                                     """, unsafe_allow_html=True)
-                                    
+
                                     if severity_terms:
                                         st.markdown(f"**Severity Indicators:** {', '.join(severity_terms)}")
                                     if duration_terms:
                                         st.markdown(f"**Duration Indicators:** {', '.join(duration_terms)}")
                                     if intensity_terms:
                                         st.markdown(f"**Intensity Indicators:** {', '.join(intensity_terms)}")
-                            
+
                             # Medical imaging analysis
                             # Check if we have uploaded medical images
                             has_medical_images = any([xray_file, ct_scan_file, lab_report])
@@ -500,11 +500,11 @@ if predict_btn and selected_symptoms:
                                 if 'components' in analysis_results:
                                     image_analysis = (analysis_results['components'].get('xray_analysis') or 
                                                    analysis_results['components'].get('ct_analysis'))
-                                
+
                                 if image_analysis:
                                     confidence = image_analysis.get('confidence', 0) * 100
                                     findings = image_analysis.get('findings', 'No significant findings')
-                                    
+
                                     st.markdown(f"""
                                     <div class="advanced-result-box">
                                     <p><strong>Image Analysis Results:</strong></p>
@@ -512,10 +512,10 @@ if predict_btn and selected_symptoms:
                                     <p><strong>Analysis Confidence:</strong> {confidence:.1f}%</p>
                                     </div>
                                     """, unsafe_allow_html=True)
-                            
+
                             # Recommendation section
                             st.markdown("#### Recommendation")
-                            
+
                             # Customize recommendation based on severity and confidence
                             if advanced_conf >= 70 and severity in ["Significant", "Severe"]:
                                 recommendation = f"Based on our advanced analysis, we strongly recommend seeking prompt medical attention for potential {analysis_results.get('top_disease', 'condition')}. Please share these results with your healthcare provider."
@@ -523,18 +523,18 @@ if predict_btn and selected_symptoms:
                                 recommendation = f"Based on our advanced analysis, we recommend consulting with a healthcare professional about potential {analysis_results.get('top_disease', 'condition')}. Please share these results with your doctor at your next appointment."
                             else:
                                 recommendation = "Based on our advanced analysis, we recommend monitoring your symptoms and consulting with a healthcare professional if they persist or worsen."
-                            
+
                             st.markdown(f"""
                             <div class="recommendation-box">
                             <p>{recommendation}</p>
                             </div>
                             """, unsafe_allow_html=True)
-                            
+
                             # Add disease-specific prevention tips and lifestyle recommendations
                             disease_name = analysis_results.get('top_disease', '')
                             if disease_name and disease_name in diseases_data:
                                 disease_info = diseases_data[disease_name]
-                                
+
                                 # Prevention Tips
                                 st.markdown("#### Prevention Tips")
                                 prevention_tips = disease_info.get('prevention_tips', [])
@@ -553,7 +553,7 @@ if predict_btn and selected_symptoms:
                                         st.markdown('</div>', unsafe_allow_html=True)
                                     else:
                                         st.write("No specific prevention tips available for this condition.")
-                                
+
                                 # Lifestyle Recommendations
                                 st.markdown("#### Lifestyle Recommendations")
                                 lifestyle_recommendations = disease_info.get('lifestyle_recommendations', [])
@@ -564,7 +564,7 @@ if predict_btn and selected_symptoms:
                                     st.markdown('</div>', unsafe_allow_html=True)
                                 else:
                                     st.write("No specific lifestyle recommendations available for this condition.")
-                            
+
                             # Disclaimer for advanced analysis
                             # Add download button for advanced report
                             advanced_report_text = generate_advanced_report(analysis_results, detailed_symptoms)
@@ -574,7 +574,7 @@ if predict_btn and selected_symptoms:
                                 file_name="advanced_analysis_report.txt",
                                 mime="text/plain"
                             )
-                            
+
                             st.markdown("""
                             <div class="disclaimer-box">
                             <p><strong>MEDICAL DISCLAIMER:</strong> This advanced analysis is not a substitute for professional medical diagnosis. 
@@ -594,7 +594,7 @@ if not predict_btn or not selected_symptoms:
     Provide a detailed description of your symptoms and optionally upload medical reports for a comprehensive assessment.</p>
     </div>
     """, unsafe_allow_html=True)
-    
+
     # Detailed symptom description for direct analysis
     direct_detailed_symptoms = st.text_area(
         "Describe your symptoms in detail:",
@@ -602,24 +602,24 @@ if not predict_btn or not selected_symptoms:
         height=150,
         key="direct_symptoms"
     )
-    
+
     # Medical reports upload section
     st.markdown("#### Upload Medical Reports (Optional)")
     st.markdown("You can upload medical reports like X-rays, CT scans, or lab reports for a more comprehensive analysis.")
-    
+
     # Create three columns for different types of uploads
     direct_upload_col1, direct_upload_col2, direct_upload_col3 = st.columns(3)
-    
+
     with direct_upload_col1:
         direct_xray_file = st.file_uploader("X-ray Image", type=["jpg", "jpeg", "png"], key="direct_xray")
         if direct_xray_file is not None:
             st.image(direct_xray_file, caption="Uploaded X-ray", use_container_width=True)
-    
+
     with direct_upload_col2:
         direct_ct_scan_file = st.file_uploader("CT Scan", type=["jpg", "jpeg", "png"], key="direct_ct")
         if direct_ct_scan_file is not None:
             st.image(direct_ct_scan_file, caption="Uploaded CT Scan", use_container_width=True)
-    
+
     with direct_upload_col3:
         direct_lab_report = st.file_uploader("Lab Report", type=["pdf", "jpg", "jpeg", "png"], key="direct_lab")
         if direct_lab_report is not None:
@@ -627,7 +627,7 @@ if not predict_btn or not selected_symptoms:
                 st.write(f"PDF Uploaded: {direct_lab_report.name}")
             else:
                 st.image(direct_lab_report, caption="Uploaded Lab Report", use_container_width=True)
-    
+
     # Direct advanced analysis button
     if st.button("Run Direct Advanced Analysis", type="primary", key="direct_advanced_btn"):
         if not direct_detailed_symptoms and not direct_xray_file and not direct_ct_scan_file and not direct_lab_report:
@@ -639,12 +639,12 @@ if not predict_btn or not selected_symptoms:
                 # This is a simplistic approach - in a real system, NLP would be used here
                 potential_symptoms = []
                 common_symptoms = symptoms_data["common_symptoms"]
-                
+
                 # Simple keyword matching for symptoms
                 for symptom in common_symptoms:
                     if symptom.lower() in direct_detailed_symptoms.lower():
                         potential_symptoms.append(symptom)
-                
+
                 # If we found symptoms, make a basic prediction
                 if potential_symptoms:
                     symptoms_text = ", ".join(potential_symptoms)
@@ -658,7 +658,7 @@ if not predict_btn or not selected_symptoms:
                         ("Stress", 0.2)
                     ]
                     st.session_state.predictions = dummy_predictions
-            
+
             # Now run the comprehensive AI-powered advanced analysis
             with st.spinner("Running comprehensive AI analysis..."):
                 # Get comprehensive analysis results using our new implementation
@@ -669,55 +669,55 @@ if not predict_btn or not selected_symptoms:
                     ct_scan_file=direct_ct_scan_file,
                     lab_report=direct_lab_report
                 )
-                
+
                 if analysis_results and analysis_results.get("success", False):
                     st.success("Advanced analysis complete!")
-                    
+
                     # Display results in an expander
                     with st.expander("View Advanced Analysis Results", expanded=True):
                         # Basic info
                         st.markdown(f"#### Analysis of {analysis_results.get('top_disease', 'Unknown Condition')}")
-                        
+
                         # Confidence score (only show advanced confidence since this is direct analysis)
                         advanced_conf = analysis_results.get('advanced_confidence', 0) * 100
-                        
+
                         # Display confidence scores
                         st.markdown(f"**Analysis Confidence:** {advanced_conf:.1f}%")
-                        
+
                         # Severity and urgency indicators
                         severity = analysis_results.get('severity', 'Unknown')
                         urgency = analysis_results.get('urgency', 'Unknown')
-                        
+
                         severity_col1, severity_col2 = st.columns(2)
                         with severity_col1:
                             st.markdown(f"**Severity Assessment:** {severity}")
                         with severity_col2:
                             st.markdown(f"**Recommended Action:** {urgency}")
-                        
+
                         # Natural language analysis
                         if direct_detailed_symptoms:
                             st.markdown("#### Natural Language Analysis")
                             nl_indicators = analysis_results.get('natural_language_indicators', {})
-                            
+
                             if nl_indicators:
                                 # Format the detected language patterns
                                 severity_terms = nl_indicators.get('severity_terms', [])
                                 duration_terms = nl_indicators.get('duration_terms', [])
                                 intensity_terms = nl_indicators.get('intensity_terms', [])
-                                
+
                                 st.markdown("""
                                 <div class="advanced-result-box">
                                 <p><strong>Symptom Analysis:</strong> Our language analysis has detected key indicators in your description.</p>
                                 </div>
                                 """, unsafe_allow_html=True)
-                                
+
                                 if severity_terms:
                                     st.markdown(f"**Severity Indicators:** {', '.join(severity_terms)}")
                                 if duration_terms:
                                     st.markdown(f"**Duration Indicators:** {', '.join(duration_terms)}")
                                 if intensity_terms:
                                     st.markdown(f"**Intensity Indicators:** {', '.join(intensity_terms)}")
-                        
+
                         # Medical imaging analysis
                         has_medical_images = any([direct_xray_file, direct_ct_scan_file, direct_lab_report])
                         if has_medical_images:
@@ -727,11 +727,11 @@ if not predict_btn or not selected_symptoms:
                             if 'components' in analysis_results:
                                 image_analysis = (analysis_results['components'].get('xray_analysis') or 
                                                analysis_results['components'].get('ct_analysis'))
-                            
+
                             if image_analysis:
                                 confidence = image_analysis.get('confidence', 0) * 100
                                 findings = image_analysis.get('findings', 'No significant findings')
-                                
+
                                 st.markdown(f"""
                                 <div class="advanced-result-box">
                                 <p><strong>Image Analysis Results:</strong></p>
@@ -739,10 +739,10 @@ if not predict_btn or not selected_symptoms:
                                 <p><strong>Analysis Confidence:</strong> {confidence:.1f}%</p>
                                 </div>
                                 """, unsafe_allow_html=True)
-                        
+
                         # Recommendation section
                         st.markdown("#### Recommendation")
-                        
+
                         # Customize recommendation based on severity and confidence
                         if advanced_conf >= 70 and severity in ["Significant", "Severe"]:
                             recommendation = f"Based on our advanced analysis, we strongly recommend seeking prompt medical attention for potential {analysis_results.get('top_disease', 'condition')}. Please share these results with your healthcare provider."
@@ -750,18 +750,18 @@ if not predict_btn or not selected_symptoms:
                             recommendation = f"Based on our advanced analysis, we recommend consulting with a healthcare professional about potential {analysis_results.get('top_disease', 'condition')}. Please share these results with your doctor at your next appointment."
                         else:
                             recommendation = "Based on our advanced analysis, we recommend monitoring your symptoms and consulting with a healthcare professional if they persist or worsen."
-                        
+
                         st.markdown(f"""
                         <div class="recommendation-box">
                         <p>{recommendation}</p>
                         </div>
                         """, unsafe_allow_html=True)
-                        
+
                         # Add disease-specific prevention tips and lifestyle recommendations
                         disease_name = analysis_results.get('top_disease', '')
                         if disease_name and disease_name in diseases_data:
                             disease_info = diseases_data[disease_name]
-                            
+
                             # Prevention Tips
                             st.markdown("#### Prevention Tips")
                             prevention_tips = disease_info.get('prevention_tips', [])
@@ -780,7 +780,7 @@ if not predict_btn or not selected_symptoms:
                                     st.markdown('</div>', unsafe_allow_html=True)
                                 else:
                                     st.write("No specific prevention tips available for this condition.")
-                            
+
                             # Lifestyle Recommendations
                             st.markdown("#### Lifestyle Recommendations")
                             lifestyle_recommendations = disease_info.get('lifestyle_recommendations', [])
@@ -791,7 +791,7 @@ if not predict_btn or not selected_symptoms:
                                 st.markdown('</div>', unsafe_allow_html=True)
                             else:
                                 st.write("No specific lifestyle recommendations available for this condition.")
-                        
+
                         # Disclaimer for advanced analysis
                         st.markdown("""
                         <div class="disclaimer-box">
