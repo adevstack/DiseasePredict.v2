@@ -4,8 +4,11 @@ address = "0.0.0.0"
 port = 5000
 
 [theme]
-primaryColor = "#0466c8"
-backgroundColor = "#0c1821"
-secondaryBackgroundColor = "#1e2d3d"
-textColor = "#ffffff"
+primaryColor = "#D4AF37"  # Gold
+backgroundColor = "#1A2B47"  # Dark Navy Blue
+secondaryBackgroundColor = "#2D425A"  # Slightly lighter Navy
+textColor = "#F0F2F6"  # Off-white
 font = "sans serif"
+
+[global]
+showWarningOnDirectExecution = false
