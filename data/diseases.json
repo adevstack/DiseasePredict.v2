@@ -1,0 +1,406 @@
+{
+  "Common Cold": {
+    "description": "A viral infection of the upper respiratory tract. It's usually harmless, although it might not feel that way. Many types of viruses can cause a common cold.",
+    "symptoms": [
+      "Runny or stuffy nose",
+      "Sore throat",
+      "Cough",
+      "Congestion",
+      "Slight body aches or a mild headache",
+      "Sneezing",
+      "Low-grade fever",
+      "Generally feeling unwell"
+    ],
+    "causes": [
+      "Rhinoviruses",
+      "Coronavirus",
+      "RSV and parainfluenza"
+    ],
+    "prevention": [
+      "Wash your hands",
+      "Disinfect your things",
+      "Don't share drinking glasses or utensils",
+      "Use disposable tissues",
+      "Take care of your general health"
+    ],
+    "treatments": [
+      "Rest and proper hydration",
+      "Over-the-counter cold medications",
+      "Pain relievers like acetaminophen or ibuprofen",
+      "Decongestants",
+      "Cough syrups"
+    ],
+    "medications": [
+      "Paracetamol",
+      "Ibuprofen",
+      "Cetirizine",
+      "Phenylephrine",
+      "Dextromethorphan"
+    ]
+  },
+  "Influenza": {
+    "description": "The flu is a contagious respiratory illness caused by influenza viruses that infect the nose, throat, and sometimes the lungs. It can cause mild to severe illness, and at times can lead to death.",
+    "symptoms": [
+      "Fever or feeling feverish/chills",
+      "Cough",
+      "Sore throat",
+      "Runny or stuffy nose",
+      "Muscle or body aches",
+      "Headaches",
+      "Fatigue",
+      "Vomiting and diarrhea (more common in children)"
+    ],
+    "causes": [
+      "Influenza A viruses",
+      "Influenza B viruses",
+      "Influenza C viruses"
+    ],
+    "prevention": [
+      "Get the flu vaccine each year",
+      "Wash your hands frequently",
+      "Cover your mouth and nose when coughing or sneezing",
+      "Avoid close contact with sick people",
+      "Stay home when you are sick"
+    ],
+    "treatments": [
+      "Rest and proper hydration",
+      "Antiviral medications (if prescribed early)",
+      "Pain relievers and fever reducers",
+      "Decongestants and antihistamines for symptom relief"
+    ],
+    "medications": [
+      "Oseltamivir (Tamiflu)",
+      "Zanamivir (Relenza)",
+      "Paracetamol",
+      "Ibuprofen",
+      "Levocetirizine"
+    ]
+  },
+  "Pneumonia": {
+    "description": "Pneumonia is an infection that inflames the air sacs in one or both lungs. The air sacs may fill with fluid or pus, causing cough with phlegm or pus, fever, chills, and difficulty breathing.",
+    "symptoms": [
+      "Chest pain when breathing or coughing",
+      "Confusion or changes in mental awareness (in adults age 65 and older)",
+      "Cough, which may produce phlegm",
+      "Fatigue",
+      "Fever, sweating and shaking chills",
+      "Lower than normal body temperature (in adults older than age 65 and people with weak immune systems)",
+      "Nausea, vomiting or diarrhea",
+      "Shortness of breath"
+    ],
+    "causes": [
+      "Bacteria (most common is Streptococcus pneumoniae)",
+      "Viruses (including COVID-19)",
+      "Fungi",
+      "Mycoplasma"
+    ],
+    "prevention": [
+      "Get vaccinated (pneumococcal vaccine)",
+      "Practice good hygiene",
+      "Don't smoke",
+      "Maintain a strong immune system",
+      "Be aware of your risk factors"
+    ],
+    "treatments": [
+      "Antibiotics for bacterial pneumonia",
+      "Antiviral medications for viral pneumonia",
+      "Fever reducers",
+      "Cough medicine",
+      "Hospitalization for severe cases"
+    ],
+    "medications": [
+      "Amoxicillin",
+      "Azithromycin",
+      "Levofloxacin",
+      "Ceftriaxone",
+      "Paracetamol"
+    ]
+  },
+  "Hypertension": {
+    "description": "High blood pressure is a common condition in which the long-term force of the blood against your artery walls is high enough that it may eventually cause health problems, such as heart disease.",
+    "symptoms": [
+      "Most people with high blood pressure have no signs or symptoms, even if blood pressure readings reach dangerously high levels",
+      "Some people with high blood pressure may have headaches, shortness of breath or nosebleeds, but these signs and symptoms aren't specific and usually don't occur until high blood pressure has reached a severe or life-threatening stage"
+    ],
+    "causes": [
+      "Primary hypertension (no identifiable cause)",
+      "Secondary hypertension (caused by an underlying condition)",
+      "Obstructive sleep apnea",
+      "Kidney disease",
+      "Adrenal gland tumors",
+      "Thyroid problems",
+      "Certain medications (birth control pills, cold remedies, decongestants, over-the-counter pain relievers and some prescription drugs)",
+      "Illegal drugs (cocaine and amphetamines)"
+    ],
+    "prevention": [
+      "Maintain a healthy weight",
+      "Regular physical activity",
+      "Eat a healthy diet (low sodium, high in fruits and vegetables)",
+      "Limit alcohol consumption",
+      "Quit smoking",
+      "Manage stress",
+      "Regular blood pressure monitoring"
+    ],
+    "treatments": [
+      "Lifestyle changes",
+      "Diuretics",
+      "Angiotensin-converting enzyme (ACE) inhibitors",
+      "Angiotensin II receptor blockers (ARBs)",
+      "Calcium channel blockers",
+      "Beta blockers"
+    ],
+    "medications": [
+      "Amlodipine",
+      "Losartan",
+      "Telmisartan",
+      "Hydrochlorothiazide",
+      "Metoprolol"
+    ]
+  },
+  "Diabetes": {
+    "description": "Diabetes is a disease that occurs when your blood glucose, also called blood sugar, is too high. Blood glucose is your main source of energy and comes from the food you eat. Insulin, a hormone made by the pancreas, helps glucose get into your cells to be used for energy.",
+    "symptoms": [
+      "Increased thirst",
+      "Frequent urination",
+      "Extreme hunger",
+      "Unexplained weight loss",
+      "Presence of ketones in the urine (ketones are a byproduct of the breakdown of muscle and fat that happens when there's not enough available insulin)",
+      "Fatigue",
+      "Irritability",
+      "Blurred vision",
+      "Slow-healing sores",
+      "Frequent infections"
+    ],
+    "causes": [
+      "Type 1 diabetes: The immune system attacks and destroys cells in the pancreas that make insulin",
+      "Type 2 diabetes: Cells become resistant to the action of insulin, and the pancreas is unable to make enough insulin to overcome this resistance",
+      "Gestational diabetes: Hormones produced by the placenta during pregnancy can cause insulin resistance"
+    ],
+    "prevention": [
+      "Eat healthy foods",
+      "Get more physical activity",
+      "Lose excess weight",
+      "Quit smoking",
+      "Regular medical checkups"
+    ],
+    "treatments": [
+      "Type 1 diabetes: Insulin therapy, carbohydrate counting, frequent blood sugar monitoring",
+      "Type 2 diabetes: Healthy eating, regular exercise, blood sugar monitoring, diabetes medication or insulin therapy",
+      "Gestational diabetes: Monitoring blood sugar, healthy diet, exercise, and sometimes insulin or oral medications"
+    ],
+    "medications": [
+      "Insulin (various types)",
+      "Metformin",
+      "Glimepiride",
+      "Sitagliptin",
+      "Empagliflozin"
+    ]
+  },
+  "COVID-19": {
+    "description": "COVID-19 is a respiratory disease caused by the SARS-CoV-2 virus. It can cause a range of symptoms, from mild illness to pneumonia. Some people recover easily, while others may get very sick very quickly.",
+    "symptoms": [
+      "Fever or chills",
+      "Cough",
+      "Shortness of breath or difficulty breathing",
+      "Fatigue",
+      "Muscle or body aches",
+      "Headache",
+      "New loss of taste or smell",
+      "Sore throat",
+      "Congestion or runny nose",
+      "Nausea or vomiting",
+      "Diarrhea"
+    ],
+    "causes": [
+      "Infection with the SARS-CoV-2 virus"
+    ],
+    "prevention": [
+      "Get vaccinated",
+      "Wash your hands frequently",
+      "Wear a mask in public settings",
+      "Maintain social distancing",
+      "Avoid crowds and poorly ventilated spaces",
+      "Cover coughs and sneezes",
+      "Clean and disinfect frequently touched surfaces daily"
+    ],
+    "treatments": [
+      "Rest and hydration",
+      "Over-the-counter fever reducers",
+      "Antiviral medications (for those at higher risk)",
+      "Monoclonal antibody treatment (for certain cases)",
+      "Supportive care in severe cases"
+    ],
+    "medications": [
+      "Paracetamol",
+      "Ibuprofen",
+      "Molnupiravir",
+      "Paxlovid",
+      "Remdesivir"
+    ]
+  },
+  "Asthma": {
+    "description": "Asthma is a condition in which your airways narrow and swell and may produce extra mucus. This can make breathing difficult and trigger coughing, a whistling sound (wheezing) when you breathe out and shortness of breath.",
+    "symptoms": [
+      "Shortness of breath",
+      "Chest tightness or pain",
+      "Wheezing when exhaling, which is a common sign of asthma in children",
+      "Trouble sleeping caused by shortness of breath, coughing or wheezing",
+      "Coughing or wheezing attacks that are worsened by a respiratory virus, such as a cold or the flu"
+    ],
+    "causes": [
+      "Airborne allergens, such as pollen, dust mites, mold spores, pet dander or particles of cockroach waste",
+      "Respiratory infections, such as the common cold",
+      "Physical activity",
+      "Cold air",
+      "Air pollutants and irritants, such as smoke",
+      "Certain medications, including beta blockers, aspirin, and NSAIDs",
+      "Strong emotions and stress",
+      "Sulfites and preservatives added to some foods and beverages"
+    ],
+    "prevention": [
+      "Know and avoid your triggers",
+      "Take your medications as prescribed",
+      "Monitor your breathing",
+      "Identify and treat attacks early",
+      "Get vaccinated for influenza and pneumonia"
+    ],
+    "treatments": [
+      "Quick-relief (rescue) medications",
+      "Long-term control medications",
+      "Bronchial thermoplasty",
+      "Treat allergies if they trigger asthma symptoms",
+      "Breathing exercises"
+    ],
+    "medications": [
+      "Salbutamol (Albuterol)",
+      "Budesonide",
+      "Montelukast",
+      "Formoterol",
+      "Ipratropium bromide"
+    ]
+  },
+  "Migraine": {
+    "description": "A migraine is a headache that can cause severe throbbing pain or a pulsing sensation, usually on one side of the head. It's often accompanied by nausea, vomiting, and extreme sensitivity to light and sound.",
+    "symptoms": [
+      "Prodrome: Constipation, mood changes, food cravings, neck stiffness, increased thirst, frequent yawning",
+      "Aura: Visual phenomena, vision loss, pins and needles sensations in an arm or leg, weakness or numbness in the face or one side of the body, difficulty speaking",
+      "Attack: Pain usually on one side of your head, but often on both sides, pain that throbs or pulses, sensitivity to light, sound, and sometimes smell and touch, nausea and vomiting",
+      "Post-drome: Feeling drained, confused and washed out, elated and energetic"
+    ],
+    "causes": [
+      "Genetic factors",
+      "Hormonal changes in women",
+      "Drinks (alcohol, especially wine, and too much caffeine)",
+      "Stress",
+      "Sensory stimuli (bright lights, sun glare, loud sounds, strong smells)",
+      "Sleep changes",
+      "Physical factors (intense physical exertion, sexual activity)",
+      "Weather changes",
+      "Medications (oral contraceptives, vasodilators)",
+      "Foods (aged cheeses, salty and processed foods, food additives)"
+    ],
+    "prevention": [
+      "Identify and avoid triggers",
+      "Establish regular sleep schedule",
+      "Eat regular meals",
+      "Stay hydrated",
+      "Exercise regularly",
+      "Manage stress",
+      "Keep a headache diary"
+    ],
+    "treatments": [
+      "Pain-relieving medications",
+      "Preventive medications",
+      "Lifestyle adjustments",
+      "Alternative medicine (acupuncture, biofeedback, massage)",
+      "Counseling"
+    ],
+    "medications": [
+      "Sumatriptan",
+      "Rizatriptan",
+      "Propranolol",
+      "Topiramate",
+      "Amitriptyline"
+    ]
+  },
+  "Arthritis": {
+    "description": "Arthritis is inflammation of one or more joints, causing pain and stiffness that can worsen with age. The main symptoms of arthritis are joint pain and stiffness, which typically worsen with age.",
+    "symptoms": [
+      "Pain",
+      "Stiffness",
+      "Swelling",
+      "Redness",
+      "Decreased range of motion"
+    ],
+    "causes": [
+      "Osteoarthritis: Wear and tear damage to joint cartilage",
+      "Rheumatoid arthritis: Immune system attacks the lining of the joint capsule",
+      "Gout: Uric acid crystals build up in joints",
+      "Infectious arthritis: Infection in the joint",
+      "Psoriatic arthritis: Associated with the skin condition psoriasis"
+    ],
+    "prevention": [
+      "Maintain a healthy weight",
+      "Regular physical activity",
+      "Protect your joints",
+      "Eat a healthy diet",
+      "Avoid smoking"
+    ],
+    "treatments": [
+      "Medications to reduce pain and inflammation",
+      "Physical therapy",
+      "Exercise",
+      "Heat and cold therapy",
+      "Joint protection",
+      "Surgery in severe cases"
+    ],
+    "medications": [
+      "Paracetamol",
+      "Ibuprofen",
+      "Naproxen",
+      "Methotrexate",
+      "Hydroxychloroquine"
+    ]
+  },
+  "Malaria": {
+    "description": "Malaria is a disease caused by a parasite that spreads to humans through the bites of infected mosquitoes. Symptoms usually begin within a few weeks after being bitten by an infected mosquito.",
+    "symptoms": [
+      "Fever",
+      "Chills",
+      "Headache",
+      "Nausea and vomiting",
+      "Muscle pain and fatigue",
+      "Sweating",
+      "Chest or abdominal pain",
+      "Cough"
+    ],
+    "causes": [
+      "Bite from a female Anopheles mosquito that has been infected by a Plasmodium parasite",
+      "Plasmodium falciparum (most common)",
+      "Plasmodium vivax",
+      "Plasmodium ovale",
+      "Plasmodium malariae",
+      "Plasmodium knowlesi"
+    ],
+    "prevention": [
+      "Use mosquito repellent",
+      "Cover exposed skin",
+      "Sleep under a mosquito net",
+      "Spray indoor spaces with insecticide",
+      "Take preventive medicine if traveling to endemic areas"
+    ],
+    "treatments": [
+      "Antimalarial medications",
+      "Supportive care",
+      "IV fluids and blood transfusions in severe cases",
+      "Monitoring for complications"
+    ],
+    "medications": [
+      "Chloroquine",
+      "Artemisinin-based combination therapies (ACTs)",
+      "Atovaquone-proguanil",
+      "Quinine",
+      "Primaquine"
+    ]
+  }
+}
