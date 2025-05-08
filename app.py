@@ -463,8 +463,9 @@ if predict_btn and selected_symptoms:
                                     
                                     st.markdown(f"""
                                     <div class="advanced-result-box">
-                                    <p><strong>Image Analysis:</strong> {findings}</p>
-                                    <p><strong>Confidence:</strong> {confidence:.1f}%</p>
+                                    <p><strong>Image Analysis Results:</strong></p>
+                                    <p>{findings}</p>
+                                    <p><strong>Analysis Confidence:</strong> {confidence:.1f}%</p>
                                     </div>
                                     """, unsafe_allow_html=True)
                             
@@ -680,8 +681,9 @@ if not predict_btn or not selected_symptoms:
                                 
                                 st.markdown(f"""
                                 <div class="advanced-result-box">
-                                <p><strong>Image Analysis:</strong> {findings}</p>
-                                <p><strong>Confidence:</strong> {confidence:.1f}%</p>
+                                <p><strong>Image Analysis Results:</strong></p>
+                                <p>{findings}</p>
+                                <p><strong>Analysis Confidence:</strong> {confidence:.1f}%</p>
                                 </div>
                                 """, unsafe_allow_html=True)
                         

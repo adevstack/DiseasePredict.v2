@@ -371,10 +371,11 @@ def perform_comprehensive_analysis(detailed_symptoms, initial_predictions, xray_
             xray_results = analyze_medical_image_simple(xray_file.read(), "xray")
             results["components"]["xray_analysis"] = xray_results
             
-            # Store for UI compatibility
+            # Store for UI compatibility with better formatting
             results["image_analysis"] = {
                 "confidence": xray_results.get("overall_confidence", 0.7),
-                "findings": ", ".join([f"{finding.get('condition')} ({finding.get('confidence'):.1%})" 
+                "findings": "Based on the X-ray analysis, the following conditions were detected: " + 
+                           "; ".join([f"{finding.get('condition')} ({finding.get('confidence'):.1%} confidence)" 
                                     for finding in xray_results.get("findings", [])[:2]])
             }
             
@@ -392,10 +393,11 @@ def perform_comprehensive_analysis(detailed_symptoms, initial_predictions, xray_
             ct_results = analyze_medical_image_simple(ct_scan_file.read(), "ct_scan")
             results["components"]["ct_analysis"] = ct_results
             
-            # Store for UI compatibility 
+            # Store for UI compatibility with better formatting
             results["image_analysis"] = {
                 "confidence": ct_results.get("overall_confidence", 0.7),
-                "findings": ", ".join([f"{finding.get('condition')} ({finding.get('confidence'):.1%})" 
+                "findings": "Based on the CT scan analysis, the following conditions were detected: " + 
+                           "; ".join([f"{finding.get('condition')} ({finding.get('confidence'):.1%} confidence)" 
                                     for finding in ct_results.get("findings", [])[:2]])
             }
             
