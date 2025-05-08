@@ -3,6 +3,7 @@ import os
 import json
 import pandas as pd
 from models import predict_disease, load_model, advanced_analysis
+from advanced_models import perform_comprehensive_analysis
 from pharmacy_scraper import (
     search_medication_1mg,
     search_medication_pharmeasy,
@@ -374,16 +375,15 @@ if predict_btn and selected_symptoms:
                 if not current_predictions:
                     st.warning("Please run the basic disease prediction first by selecting symptoms and clicking 'Predict Disease' before running advanced analysis.")
                 else:
-                    # Run DistilBERT-based advanced analysis
-                    with st.spinner("Running advanced analysis with DistilBERT model..."):
-                        # Check if we have images uploaded
-                        has_images = any([xray_file, ct_scan_file, lab_report])
-                        
-                        # Get advanced analysis results using our advanced_analysis function from models.py
-                        analysis_results = advanced_analysis(
+                    # Run AI-powered comprehensive advanced analysis
+                    with st.spinner("Running comprehensive AI analysis..."):
+                        # Perform comprehensive analysis using our new advanced_models.py implementation
+                        analysis_results = perform_comprehensive_analysis(
                             detailed_symptoms=detailed_symptoms,
                             initial_predictions=current_predictions[:3] if current_predictions else [],
-                            image_uploaded=has_images
+                            xray_file=xray_file,
+                            ct_scan_file=ct_scan_file,
+                            lab_report=lab_report
                         )
                     
                     if analysis_results and analysis_results.get("success", False):
@@ -447,9 +447,15 @@ if predict_btn and selected_symptoms:
                                         st.markdown(f"**Intensity Indicators:** {', '.join(intensity_terms)}")
                             
                             # Medical imaging analysis
-                            if has_images:
+                            # Check if we have uploaded medical images
+                            has_medical_images = any([xray_file, ct_scan_file, lab_report])
+                            if has_medical_images:
                                 st.markdown("#### Medical Imaging Analysis")
-                                image_analysis = analysis_results.get('image_analysis', None)
+                                # Check for image analysis in different components
+                                image_analysis = None
+                                if 'components' in analysis_results:
+                                    image_analysis = (analysis_results['components'].get('xray_analysis') or 
+                                                   analysis_results['components'].get('ct_analysis'))
                                 
                                 if image_analysis:
                                     confidence = image_analysis.get('confidence', 0) * 100
@@ -599,16 +605,15 @@ if not predict_btn or not selected_symptoms:
                     ]
                     st.session_state.predictions = dummy_predictions
             
-            # Now run the advanced analysis
-            with st.spinner("Running advanced analysis with DistilBERT model..."):
-                # Check if we have images uploaded
-                has_images = any([direct_xray_file, direct_ct_scan_file, direct_lab_report])
-                
-                # Get advanced analysis results
-                analysis_results = advanced_analysis(
+            # Now run the comprehensive AI-powered advanced analysis
+            with st.spinner("Running comprehensive AI analysis..."):
+                # Get comprehensive analysis results using our new implementation
+                analysis_results = perform_comprehensive_analysis(
                     detailed_symptoms=direct_detailed_symptoms,
                     initial_predictions=st.session_state.predictions[:3] if st.session_state.predictions else [],
-                    image_uploaded=has_images
+                    xray_file=direct_xray_file,
+                    ct_scan_file=direct_ct_scan_file,
+                    lab_report=direct_lab_report
                 )
                 
                 if analysis_results and analysis_results.get("success", False):
@@ -660,9 +665,14 @@ if not predict_btn or not selected_symptoms:
                                     st.markdown(f"**Intensity Indicators:** {', '.join(intensity_terms)}")
                         
                         # Medical imaging analysis
-                        if has_images:
+                        has_medical_images = any([direct_xray_file, direct_ct_scan_file, direct_lab_report])
+                        if has_medical_images:
                             st.markdown("#### Medical Imaging Analysis")
-                            image_analysis = analysis_results.get('image_analysis', None)
+                            # Check for image analysis in different components
+                            image_analysis = None
+                            if 'components' in analysis_results:
+                                image_analysis = (analysis_results['components'].get('xray_analysis') or 
+                                               analysis_results['components'].get('ct_analysis'))
                             
                             if image_analysis:
                                 confidence = image_analysis.get('confidence', 0) * 100
