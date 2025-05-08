@@ -421,6 +421,122 @@
       "Hydroxychloroquine"
     ]
   },
+  "Bronchitis": {
+    "description": "Bronchitis is an inflammation of the lining of your bronchial tubes, which carry air to and from your lungs. People with bronchitis often cough up thickened mucus, which can be discolored.",
+    "symptoms": [
+      "Persistent cough with mucus",
+      "Fatigue",
+      "Shortness of breath",
+      "Mild fever and chills",
+      "Chest discomfort",
+      "Wheezing",
+      "Sore throat",
+      "Body aches"
+    ],
+    "causes": [
+      "Viral infections",
+      "Bacterial infections",
+      "Exposure to tobacco smoke",
+      "Air pollution",
+      "Workplace exposure to dust or fumes"
+    ],
+    "prevention": [
+      "Avoid smoking and secondhand smoke",
+      "Get vaccinated against flu and pneumonia",
+      "Wash hands frequently",
+      "Wear a surgical mask around irritants",
+      "Use a humidifier"
+    ],
+    "prevention_tips": [
+      "Practice good hand hygiene to prevent viral infections",
+      "Avoid close contact with people who have respiratory infections",
+      "Stay up to date with recommended vaccinations",
+      "Use protective equipment when exposed to workplace irritants",
+      "Maintain good indoor air quality",
+      "Stay hydrated to help keep airways clear",
+      "Exercise regularly to strengthen respiratory system"
+    ],
+    "lifestyle_recommendations": [
+      "Quit smoking and avoid secondhand smoke",
+      "Use a humidifier to moisten air in your home",
+      "Practice breathing exercises to strengthen lungs",
+      "Get adequate rest during recovery",
+      "Stay hydrated with warm liquids",
+      "Avoid exposure to air pollution and irritants",
+      "Maintain a healthy diet rich in antioxidants"
+    ],
+    "treatments": [
+      "Rest and adequate hydration",
+      "Over-the-counter pain relievers",
+      "Cough suppressants",
+      "Expectorants to help clear mucus",
+      "Antibiotics (only if bacterial infection is present)"
+    ],
+    "medications": [
+      "Dextromethorphan",
+      "Guaifenesin",
+      "Amoxicillin",
+      "Azithromycin",
+      "Salbutamol inhaler"
+    ]
+  },
+  "Dengue Fever": {
+    "description": "Dengue fever is a mosquito-borne viral infection causing severe flu-like illness and, sometimes causing a potentially lethal complication called severe dengue.",
+    "symptoms": [
+      "High fever (40°C/104°F)",
+      "Severe headache",
+      "Pain behind the eyes",
+      "Muscle and joint pains",
+      "Nausea and vomiting",
+      "Fatigue",
+      "Rash",
+      "Mild bleeding (nose or gums)"
+    ],
+    "causes": [
+      "Dengue virus (DENV) transmitted by Aedes mosquitoes",
+      "Four different dengue virus serotypes",
+      "Previous exposure to dengue virus"
+    ],
+    "prevention": [
+      "Use mosquito repellents",
+      "Wear long-sleeved clothes",
+      "Use mosquito nets",
+      "Eliminate mosquito breeding sites",
+      "Install proper window screens"
+    ],
+    "prevention_tips": [
+      "Apply mosquito repellent containing DEET",
+      "Wear protective clothing (long sleeves and pants)",
+      "Use air conditioning or window/door screens",
+      "Empty standing water from containers around home",
+      "Stay in well-screened or air-conditioned areas",
+      "Be extra careful during dawn and dusk when mosquitoes are most active",
+      "Maintain clean surroundings to prevent mosquito breeding"
+    ],
+    "lifestyle_recommendations": [
+      "Stay hydrated by drinking plenty of fluids",
+      "Get plenty of rest during recovery",
+      "Eat nutritious foods to support immune system",
+      "Avoid aspirin and NSAIDs due to bleeding risk",
+      "Monitor temperature and symptoms regularly",
+      "Keep surroundings clean and free of mosquito breeding sites",
+      "Follow up with healthcare provider as recommended"
+    ],
+    "treatments": [
+      "Supportive care and rest",
+      "Pain relievers (avoiding aspirin)",
+      "Maintain hydration",
+      "Hospital care for severe cases",
+      "Regular monitoring of blood counts"
+    ],
+    "medications": [
+      "Paracetamol",
+      "Oral rehydration solutions",
+      "IV fluids (if needed)",
+      "Antipyretics",
+      "Blood products (in severe cases)"
+    ]
+  },
   "Malaria": {
     "description": "Malaria is a disease caused by a parasite that spreads to humans through the bites of infected mosquitoes. Symptoms usually begin within a few weeks after being bitten by an infected mosquito.",
     "symptoms": [
@@ -461,5 +577,65 @@
       "Quinine",
       "Primaquine"
     ]
+  },
+  "Tuberculosis": {
+    "description": "Tuberculosis (TB) is a potentially serious infectious disease that mainly affects the lungs. The bacteria that cause TB are spread from person to person through tiny droplets released into the air via coughs and sneezes.",
+    "symptoms": [
+      "Coughing for three or more weeks",
+      "Coughing up blood",
+      "Chest pain",
+      "Unintentional weight loss",
+      "Fatigue",
+      "Fever",
+      "Night sweats",
+      "Loss of appetite"
+    ],
+    "causes": [
+      "Mycobacterium tuberculosis bacteria",
+      "Close contact with infected persons",
+      "Weakened immune system",
+      "Poor living conditions",
+      "Malnutrition"
+    ],
+    "prevention": [
+      "BCG vaccination",
+      "Early detection and treatment",
+      "Good ventilation",
+      "Proper respiratory hygiene",
+      "Isolation of infected persons"
+    ],
+    "prevention_tips": [
+      "Get vaccinated with BCG if recommended",
+      "Complete all prescribed medications if infected",
+      "Cover mouth when coughing or sneezing",
+      "Ensure good ventilation in living spaces",
+      "Get regular health check-ups if at risk",
+      "Maintain a strong immune system",
+      "Avoid close contact with infected individuals"
+    ],
+    "lifestyle_recommendations": [
+      "Maintain good nutrition with protein-rich foods",
+      "Get adequate rest and sleep",
+      "Stop smoking and avoid alcohol",
+      "Exercise regularly as tolerated",
+      "Keep all medical appointments",
+      "Take medications exactly as prescribed",
+      "Maintain good personal hygiene"
+    ],
+    "treatments": [
+      "Antibiotic combination therapy",
+      "Directly Observed Therapy (DOT)",
+      "Regular monitoring of treatment progress",
+      "Supportive care",
+      "Treatment of complications if any"
+    ],
+    "medications": [
+      "Isoniazid",
+      "Rifampin",
+      "Ethambutol",
+      "Pyrazinamide",
+      "Streptomycin"
+    ]
   }
+}
 }
